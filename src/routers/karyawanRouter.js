@@ -18,8 +18,8 @@ router.post('/karyawan/add', (req,res) => {
     })
 })
 //edit karyawan
-router.patch('/karyawan/edit/:idkaryawan', (req,res) => {
-    var data = [req.body, req.params.idkaryawan]
+router.patch('/karyawan/edit/:id', (req,res) => {
+    var data = [req.body, req.params.id]
     var sql = `UPDATE karyawan SET ? WHERE id = ?`
     var sql2 = `SELECT * FROM karyawan`
 
@@ -35,10 +35,10 @@ router.patch('/karyawan/edit/:idkaryawan', (req,res) => {
     })
 })
 //delete karyawan
-router.delete('/karyawan/delete/:idkaryawan', (req,res) => {
+router.delete('/karyawan/delete/:id', (req,res) => {
     var sql = `DELETE FROM karyawan WHERE id = ?`
     var sql2 = `SELECT * FROM karyawan`
-    var data = req.params.idcategory
+    var data = req.params.id
 
     connect.query(sql, data, (error,result) => {
         if(error) return res.send(error.sqlMessage)

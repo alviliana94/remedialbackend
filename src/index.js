@@ -1,12 +1,12 @@
 const express = require ('express')
 const karyawanRouter = require('./routers/karyawanRouter')
 
-const ex = express()
+const vya = express()
 const port = 1995
 
-ex.use (express.json())
-ex.use (karyawanRouter)
+vya.use (express.json())
+vya.use (karyawanRouter)
 
-ex.listen(port, () => {
+vya.listen(port, () => {
     console.log("Running at", port);
 })
